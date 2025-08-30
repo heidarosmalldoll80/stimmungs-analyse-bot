@@ -15,15 +15,16 @@ max_length = 100
 # Funktion für die Stimmungsanalyse
 # Diese Funktion sollte den gegebenen Text tokenisieren, in die richtige Form bringen und das Modell nutzen, um die Stimmung vorherzusagen.
 def analyze_sentiment(text):
-    # Hier sollte der Text in geeignete Token umgewandelt werden
-    # Placeholder für Tokenisierung und Sequenzierung
-    # Beispiel: text_sequence = tokenizer.texts_to_sequences([text])
+    # Tokenize the input text and convert it to sequences
+    text_sequence = tokenizer.texts_to_sequences([text])
     # Padding der Sequenz auf die maximale Länge
-    # text_sequence = pad_sequences(text_sequence, maxlen=max_length)
+    text_sequence = pad_sequences(text_sequence, maxlen=max_length)
     # Vorhersage des Modells auf der Sequenz
-    # prediction = model.predict(text_sequence)
+    prediction = model.predict(text_sequence)
     # Dekodiere die Stimmung basierend auf der Vorhersage
-    return 'neutral'  # Temporär, für die Demo
+    # Hier müssen die logischen Bedingungen zur Bestimmung der Stimmungswerte hinzugefügt werden
+    sentiment = 'positive' if prediction[0] > 0.5 else 'negative'
+    return sentiment  # Rückgabe der ermittelten Stimmung
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
