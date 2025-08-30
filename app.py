@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import numpy as np
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
+from keras.preprocessing.text import Tokenizer  # Import the Tokenizer class
 
 # Initialisiere die Flask-Anwendung
 app = Flask(__name__)
@@ -11,6 +12,9 @@ model = load_model('sentiment_model.h5')
 
 # Maximaler Textlängenwert (für Padding)
 max_length = 100
+
+# Initialisiere den Tokenizer (muss vor der Nutzung des Analyze Sentiment durchgeführt werden)
+tokenizer = Tokenizer()  # Assuming tokenizer is properly fitted elsewhere with training data
 
 # Funktion für die Stimmungsanalyse
 # Diese Funktion sollte den gegebenen Text tokenisieren, in die richtige Form bringen und das Modell nutzen, um die Stimmung vorherzusagen.
