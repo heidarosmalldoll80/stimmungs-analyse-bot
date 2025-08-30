@@ -1,11 +1,11 @@
 # Flask web framework
-Flask==2.1.1
+Flask==2.2.0
 
 # TensorFlow for machine learning
-TensorFlow==2.9.0
+TensorFlow==2.12.0
 
 # Keras for building neural networks
-Keras==2.9.0
+Keras==2.12.0
 
 # NumPy for numerical computations
-numpy==1.21.6
+numpy==1.24.2
