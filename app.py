@@ -23,7 +23,7 @@ def analyze_sentiment(text):
     prediction = model.predict(text_sequence)
     # Dekodiere die Stimmung basierend auf der Vorhersage
     # Hier müssen die logischen Bedingungen zur Bestimmung der Stimmungswerte hinzugefügt werden
-    sentiment = 'positive' if prediction[0] > 0.5 else 'negative'
+    sentiment = 'positive' if prediction[0][0] > 0.5 else 'negative'  # Using `prediction[0][0]` to access the value correctly
     return sentiment  # Rückgabe der ermittelten Stimmung
 
 @app.route('/analyze', methods=['POST'])
