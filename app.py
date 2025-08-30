@@ -33,6 +33,7 @@ def analyze_sentiment(text):
 @app.route('/analyze', methods=['POST'])
 def analyze():
     data = request.json
+    # Überprüfe, ob der erforderliche Text im JSON-Objekt vorhanden ist
     if 'text' not in data:
         return jsonify({'error': 'Kein Text angegeben.'}), 400
 
